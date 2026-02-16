@@ -15,6 +15,9 @@ import PaymentMethodRoutes from "./routes/PaymentMethodRoutes.js";
 import OrderRoutes from "./routes/OrderRoutes.js";
 import AdminRoutes from "./routes/AdminRoutes.js";
 
+// Import seed data function
+import { seedDatabase } from "./seed.js";
+
 const app = express();
 
 app.use(cors());
@@ -38,6 +41,11 @@ const connectDB = async () => {
 
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
     console.log(`📊 Database Name: ${conn.connection.name}`);
+
+
+    console.log('🌱 Seeding database with initial data...');
+    await seedDatabase();
+    
   } catch (error) {
     console.error('❌ MongoDB connection error:', error);
     process.exit(1);
