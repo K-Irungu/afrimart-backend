@@ -1,7 +1,10 @@
 import Product from "../models/Product.js";
 
+
 // GET all products
 export const getProducts = async (req, res) => {
+  console.log("Fetching all products...");
+
   try {
     const products = await Product.find();
 
@@ -44,7 +47,7 @@ export const getProduct = async (req, res) => {
 export const createProduct = async (req, res) => {
   try {
     const productData = req.body;
-    
+
     // Create new product
     const product = new Product(productData);
     const savedProduct = await product.save();
@@ -95,9 +98,9 @@ export const updateProduct = async (req, res) => {
 export const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     const deletedProduct = await Product.findByIdAndDelete(id);
-    
+
     if (!deletedProduct) {
       return res.status(404).json({ message: "Product not found" });
     }

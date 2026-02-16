@@ -47,6 +47,8 @@ const connectDB = async () => {
 // Connect to database
 connectDB();
 
+
+
 //routes
 app.use("/users", UserRoutes);
 app.use("/products", ProductRoutes);
