@@ -34,10 +34,7 @@ const connectDB = async () => {
     
     console.log('🔗 Connecting to MongoDB:', mongoURI);
     
-    const conn = await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(mongoURI);
 
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
     console.log(`📊 Database Name: ${conn.connection.name}`);
@@ -45,7 +42,7 @@ const connectDB = async () => {
 
     console.log('🌱 Seeding database with initial data...');
     await seedDatabase();
-    
+
   } catch (error) {
     console.error('❌ MongoDB connection error:', error);
     process.exit(1);
