@@ -72,7 +72,7 @@ export const seedDatabase = async () => {
     console.log("Database seeded successfully! 🌱");
     // console.log("Inserted products:", products);
 
-    process.exit();
+    // process.exit();
   } catch (error) {
     console.error("Error seeding database:", error);
     process.exit(1);
