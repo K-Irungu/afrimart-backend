@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 import Product from "./models/Product.js"; // Adjust the path to your schema file
 
-const MONGODB_URI = "mongodb://127.0.0.1:27017/afrimart";
+// const MONGODB_URI = "mongodb://127.0.0.1:27017/afrimart";
+const MONGODB_URI = process.env.MONGO_URI + process.env.DATABASE_NAME;
 
 const products = [
   {
