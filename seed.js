@@ -57,7 +57,7 @@ const products = [
   }
 ];
 
-const seedDatabase = async () => {
+export const seedDatabase = async () => {
   try {
     await mongoose.connect(MONGODB_URI);
     console.log("Connected to MongoDB...");
@@ -78,4 +78,3 @@ const seedDatabase = async () => {
   }
 };
 
-seedDatabase();
