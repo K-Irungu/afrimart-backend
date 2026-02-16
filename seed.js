@@ -70,7 +70,7 @@ export const seedDatabase = async () => {
     // Insert seed data
     await Product.insertMany(products);
     console.log("Database seeded successfully! 🌱");
-    console.log("Inserted products:", products);
+    // console.log("Inserted products:", products);
 
     process.exit();
   } catch (error) {
