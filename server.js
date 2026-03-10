@@ -40,8 +40,10 @@ const connectDB = async () => {
     console.log(`📊 Database Name: ${conn.connection.name}`);
 
 
-    console.log('🌱 Seeding database with initial data...');
-    await seedDatabase();
+    if (String(process.env.SEED_DB).toLowerCase() === "true") {
+      console.log("🌱 Seeding database with initial data (SEED_DB=true)...");
+      await seedDatabase();
+    }
 
   } catch (error) {
     console.error('❌ MongoDB connection error:', error);
